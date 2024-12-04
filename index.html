@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CRM JottaS</h1>
+        </div>
+    </header>
+    
+    <main>
+        <section class="form-section">
+            <form id="cadastroForm">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Digite o nome" required><br>
+                <label for="contato">Contato</label>
+                <input type="text" id="contato"  placeholder="(00)00000-0000" oninput="formatarContato(this)" maxlength="14"><br>
+                <button type="button" onclick="gerarCliente()">Cadastrar</button>
+            </form>
+        </section>
+
+        <section class="lista-section">
+            <h3>Clientes Cadastrados</h3>
+
+            <button type="button" onclick="listarClientes()" class="botao-listar">Listar Clientes</button>
+
+            <button type="button" onclick="exportarParaCSV()" class="botao-exportar">Exportar para Excel</button>
+            <br>
+            <br>
+            <input type="text" id="filtroBusca" placeholder="Buscar" oninput="filtrarClientes()">
+
+            <ul id="listaClientes"></ul>
+
+            <div id="paginacao">
+                <button id="botaoAnterior" onclick="navegarPagina(-1)">Anterior</button>
+                <span id="paginaAtual">Página 1</span>
+                <button id="botaoProximo" onclick="navegarPagina(1)">Próxima</button>
+            </div>
+        </section>
+    </main>
+
+    </body>
+</html>
